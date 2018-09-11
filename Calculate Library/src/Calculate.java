@@ -48,6 +48,18 @@ public class Calculate {
 		answer = (numerator + "/" + denom);
 		return answer;
 	}
+	
 	//Converts a improper fraction into a mixed number
-	public static String toMissedNum
+	public static String toMixedNum(int num, int denom) {
+		String answer;
+		answer = (num / denom + " " + num % denom + " / " + denom  );
+		return answer;	
+	}
+	//Converts the form (ax+b)(cx+d) to ax^2+bx+c
+	public static String foil(int a, int b, int c, int d, String n ) {
+		String answer;
+		answer = ((a*c + "n^2 ")+ " + " + (a * d + b * c) + "n " + " " + b * d );
+		return answer;
+	}
+	
 }
