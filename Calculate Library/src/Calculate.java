@@ -52,7 +52,7 @@ public class Calculate {
 	//Converts a improper fraction into a mixed number
 	public static String toMixedNum(int num, int denom) {
 		String answer;
-		answer = (num / denom + " " + num % denom + " / " + denom  );
+		answer = (num / denom + " " + num % denom + "/" + denom  );
 		return answer;	
 	}
 	//Converts the form (ax+b)(cx+d) to ax^2+bx+c
@@ -61,5 +61,44 @@ public class Calculate {
 		answer = ((a*c + "n^2 ")+ " + " + (a * d + b * c) + "n " + " " + b * d );
 		return answer;
 	}
-	
+	//Part 2 start
+	//This method will determine if an integer is evenly divisible by another.
+	public static boolean isDivisbleBy(int a, int b) {
+		boolean answer;
+		if (a%b == 0) {
+			answer = true;
+		}
+		else {
+			answer = false;
+		}
+		return answer;
+	}
+	//This method will return the absolute value of the number inputed. 
+	public static double absValue(double a) {
+		if (a >= 0);
+		else { 
+		a =  (a * -1);
+		}
+		return a;
+	}
+	//This method will return the larger number of the inputed two.
+	public static double max(double a, double b) {
+		if (a > b) {
+		return a;
+		}	
+		else {
+		return b;
+		}
+	}
+	//This method will return the larger number of the inputed three.
+	public static double maxOfThree(double a, double b, double c) {
+		if (a > b); {
+		if (a > c);	
+		return a;
+		} 
+		if (b > c); {
+		return b;
+		}
+		return c;
+	}
 }
