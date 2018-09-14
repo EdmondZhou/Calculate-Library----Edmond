@@ -92,13 +92,30 @@ public class Calculate {
 	}
 	//This method will return the larger number of the inputed three.
 	public static double maxOfThree(double a, double b, double c) {
-		if (a > b); {
-		if (a > c);	
-		return a;
-		} 
-		if (b > c); {
-		return b;
+		if (a > b) {
+			if (a > c) {
+			return a;
 		}
+		}	
+		else {
+			if (b > c) {
+				return b;
+			} }
 		return c;
+	}
+	//This method will return the smaller of the values inputed.
+	public static int min(int a, int b) {
+		if (a < b) {
+		return a;
+		}
+		else {
+			return b;
+		}
+	}
+	//This method will round a double to the second decimal place.
+	public static double round2(double a) {
+	a = (a * 100);
+	
+	return a;
 	}
 }

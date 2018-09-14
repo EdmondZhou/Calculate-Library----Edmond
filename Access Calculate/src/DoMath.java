@@ -17,5 +17,8 @@ public class DoMath {
 		System.out.println(Calculate.isDivisbleBy(5, 2));
 		System.out.println(Calculate.absValue(-2.213123));
 		System.out.println(Calculate.max(-25, 1000));
+		System.out.println(Calculate.maxOfThree(32, 222, 312));
+		System.out.println(Calculate.min(6, 5));
+		System.out.println(Calculate.round2(1.001));
 	}
 }
