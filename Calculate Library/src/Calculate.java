@@ -39,7 +39,7 @@ public class Calculate {
 		answer = (b*b) - 4 * a * c;
 		return answer;
 	}
-	
+
 	//Converts a mixed number into a improper fraction
 	public static String toImproperFrac(int whole, int num, int denom) {
 		int numerator;
@@ -48,7 +48,7 @@ public class Calculate {
 		answer = (numerator + "/" + denom);
 		return answer;
 	}
-	
+
 	//Converts a improper fraction into a mixed number
 	public static String toMixedNum(int num, int denom) {
 		String answer;
@@ -77,25 +77,25 @@ public class Calculate {
 	public static double absValue(double a) {
 		if (a >= 0);
 		else { 
-		a =  (a * -1);
+			a =  (a * -1);
 		}
 		return a;
 	}
 	//This method will return the larger number of the inputed two.
 	public static double max(double a, double b) {
 		if (a > b) {
-		return a;
+			return a;
 		}	
 		else {
-		return b;
+			return b;
 		}
 	}
 	//This method will return the larger number of the inputed three.
 	public static double max(double a, double b, double c) {
 		if (a > b) {
 			if (a > c) {
-			return a;
-		}
+				return a;
+			}
 		}	
 		else {
 			if (b > c) {
@@ -106,7 +106,7 @@ public class Calculate {
 	//This method will return the smaller of the values inputed.
 	public static int min(int a, int b) {
 		if (a < b) {
-		return a;
+			return a;
 		}
 		else {
 			return b;
@@ -114,11 +114,11 @@ public class Calculate {
 	}
 	//This method will round a double to the second decimal place.
 	public static double round2(double a) {
-	a = a+0.005;
-	a = (a * 100);
-	int b = (int) a;
-	double d = (int) b;
-	d = d * 0.01;
-	return d;
+		a = a+0.005;
+		a = (a * 100);
+		int b = (int) a;
+		double d = (int) b;
+		d = d * 0.01;
+		return d;
 	}
 }
