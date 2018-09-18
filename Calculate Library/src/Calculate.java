@@ -22,7 +22,7 @@ public class Calculate {
 		return Avg;
 	}
 	//Averages 3 inputed numbers
-	public static double average3(double num1,double num2, double num3) {
+	public static double average(double num1,double num2, double num3) {
 		double Avg;
 		Avg = (num1+num2+num3)/3;
 		return Avg;
@@ -91,7 +91,7 @@ public class Calculate {
 		}
 	}
 	//This method will return the larger number of the inputed three.
-	public static double maxOfThree(double a, double b, double c) {
+	public static double max(double a, double b, double c) {
 		if (a > b) {
 			if (a > c) {
 			return a;
@@ -114,8 +114,11 @@ public class Calculate {
 	}
 	//This method will round a double to the second decimal place.
 	public static double round2(double a) {
+	a = a+0.005;
 	a = (a * 100);
-	
-	return a;
+	int b = (int) a;
+	double d = (int) b;
+	d = d * 0.01;
+	return d;
 	}
 }
