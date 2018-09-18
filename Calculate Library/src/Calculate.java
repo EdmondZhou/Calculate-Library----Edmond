@@ -121,4 +121,21 @@ public class Calculate {
 		d = d * 0.01;
 		return d;
 	}
+	//Part 3
+	//This method will raise a value to a positive integer power.
+	public static double exponent(double a, int b) {
+		double c = a; 
+		for( int exponent = b;exponent != 1;exponent --) {
+		a = a * c;
+		}
+		return a;
+	}
+	//This method will return the factorial of the value passed.
+	public static int factorial(int a) {
+		int b = a;
+		for(int c = a; c != 0; c --) {
+		a = b * c;
+		}
+	return a;
+	}
 }
