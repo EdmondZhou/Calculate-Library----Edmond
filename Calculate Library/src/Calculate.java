@@ -126,16 +126,76 @@ public class Calculate {
 	public static double exponent(double a, int b) {
 		double c = a; 
 		for( int exponent = b;exponent != 1;exponent --) {
-		a = a * c;
+			a = a * c;
 		}
 		return a;
 	}
 	//This method will return the factorial of the value passed.
 	public static int factorial(int a) {
-		int b = a;
-		for(int c = a; c != 0; c --) {
-		a = b * c;
+		int b = 1;
+		for (int c = 1; c <= a; c ++) {
+			b = b * c;
 		}
-	return a;
+		return b;
+	}
+	//This method will determine if an integer is prime.
+	public static boolean isPrime(int a) {
+		boolean divisible;
+		boolean isPrime = true;
+		if (a > 1) {
+			for(int i = a - 1; i > 1; i --) {
+				divisible = Calculate.isDivisbleBy(a, i);
+				if (divisible == true) {
+					isPrime = false;
+				}
+				else {
+					isPrime = true;
+				}
+			}
+		}
+		else {
+			if (a == 1) {
+				isPrime = true;
+			}
+			else {
+				isPrime = false;
+			}
+		}
+		return isPrime;
+	}
+	//This method will find the greatest common factor of 2 integers inputed.
+	public static int gcf(int a, int b) {
+		int answer = 1;
+		for (int c = Calculate.min(a,b);c > 0; c--) {
+			if (Calculate.max(a, b) % c == 0 && Calculate.min(a,b) % c == 0) {
+				if (c >= answer) {
+					answer = c;
+				}
+			}
+		}
+		return answer;
+	}
+	//This method will approximate the square root of the value inputed rounded to the second decimal place.
+	public static double sqrt(double a) {
+		double root = a;
+		double estimate;
+		if (a == 0) {
+			return root = 0;
+		}
+		if (a < 0) {
+			throw new IllegalArgumentException ("The square root of an imaginary number is imaginary.");
+		}
+		if (a > 0) {
+			root = a / 2;
+			do {
+				estimate = root;
+				root = (estimate + (a/estimate))/2;
+			}
+			while ((estimate - root) != 0);
+		}
+			else {
+				root = a;
+			}
+		return Calculate.round2(root);
 	}
 }
