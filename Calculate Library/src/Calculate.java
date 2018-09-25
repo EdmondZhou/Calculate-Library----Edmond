@@ -33,6 +33,12 @@ public class Calculate {
 		RadtoDeg= rad*180/3.14159;
 		return RadtoDeg;
 	}
+	//Converts degrees inputed into radian
+	public static double toRadians(double deg) {
+		double DegtoRad;
+		DegtoRad= deg * 3.14158 / 180;
+		return DegtoRad;
+	}
 	//Accepts 3 doubles and returns 1 double through discriminant
 	public static double discriminant(double a, double b, double c) {
 		double answer;
@@ -40,18 +46,18 @@ public class Calculate {
 		return answer;
 	}
 	//Converts a mixed number into a improper fraction
-	public static String toImproperFrac(int whole, int num, int denom) {
+	public static String toImproperFrac(int whole, int numer, int denom) {
 		int numerator;
 		String answer;
-		numerator = whole*denom + num;
+		numerator = whole*denom + numer;
 		answer = (numerator + "/" + denom);
 		return answer;
 	}
 
 	//Converts a improper fraction into a mixed number
-	public static String toMixedNum(int num, int denom) {
+	public static String toMixedNum(int numer, int denom) {
 		String answer;
-		answer = (num / denom + " " + num % denom + "/" + denom  );
+		answer = (numer / denom + " " + numer % denom + "/" + denom  );
 		return answer;	
 	}
 	//Converts the form (ax+b)(cx+d) to ax^2+bx+c
@@ -62,7 +68,7 @@ public class Calculate {
 	}
 	//Part 2 start
 	//This method will determine if an integer is evenly divisible by another.
-	public static boolean isDivisbleBy(int dividend, int divisor) {
+	public static boolean isDivisibleBy(int dividend, int divisor) {
 		if (divisor == 0) {
 			throw new IllegalArgumentException ("Can not divide by zero.");
 		}
@@ -162,7 +168,7 @@ public class Calculate {
 		boolean isPrime = true;
 		if (a > 1) {
 			for(int i = a - 1; i > 1; i --) {
-				divisible = Calculate.isDivisbleBy(a, i);
+				divisible = Calculate.isDivisibleBy(a, i);
 				if (divisible == true) {
 					isPrime = false;
 				}
