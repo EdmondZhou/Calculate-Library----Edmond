@@ -1,6 +1,6 @@
 /*This class contains methods that perform various math operations.
  * @author Edmond Zhou
- * @version September 6, 2018
+ * @version September 25, 2018
  */
 public class Calculate {
 	//returns the square of the input
@@ -28,9 +28,9 @@ public class Calculate {
 		return Avg;
 	}
 	//Converts radian input into degrees
-	public static double toDegrees(double num) {
+	public static double toDegrees(double rad) {
 		double RadtoDeg;
-		RadtoDeg= num*180/3.14159;
+		RadtoDeg= rad*180/3.14159;
 		return RadtoDeg;
 	}
 	//Accepts 3 doubles and returns 1 double through discriminant
@@ -39,7 +39,6 @@ public class Calculate {
 		answer = (b*b) - 4 * a * c;
 		return answer;
 	}
-
 	//Converts a mixed number into a improper fraction
 	public static String toImproperFrac(int whole, int num, int denom) {
 		int numerator;
@@ -58,14 +57,17 @@ public class Calculate {
 	//Converts the form (ax+b)(cx+d) to ax^2+bx+c
 	public static String foil(int a, int b, int c, int d, String n ) {
 		String answer;
-		answer = ((a*c + "n^2 ")+ " + " + (a * d + b * c) + "n " + " " + b * d );
+		answer = ((a*c + "n^2 ")+ "+ " + (a * d + b * c) + "n " + b * d );
 		return answer;
 	}
 	//Part 2 start
 	//This method will determine if an integer is evenly divisible by another.
-	public static boolean isDivisbleBy(int a, int b) {
+	public static boolean isDivisbleBy(int dividend, int divisor) {
+		if (divisor == 0) {
+			throw new IllegalArgumentException ("Can not divide by zero.");
+		}
 		boolean answer;
-		if (a%b == 0) {
+		if (dividend % divisor == 0) {
 			answer = true;
 		}
 		else {
@@ -114,28 +116,104 @@ public class Calculate {
 	}
 	//This method will round a double to the second decimal place.
 	public static double round2(double a) {
-		a = a+0.005;
-		a = (a * 100);
-		int b = (int) a;
-		double d = (int) b;
-		d = d * 0.01;
-		return d;
+		if (a >= 0) {
+			a = a+0.005;
+			a = (a * 100);
+			int truncate = (int) a;
+			double d = (int) truncate;
+			d = d * 0.01;
+			return d;
+		}
+		else { 	
+			a = a-0.005;
+			a = (a * 100);
+			int b = (int) a;
+			double d = (int) b;
+			d = d * 0.01;
+			return d;
+		}
 	}
 	//Part 3
 	//This method will raise a value to a positive integer power.
-	public static double exponent(double a, int b) {
-		double c = a; 
-		for( int exponent = b;exponent != 1;exponent --) {
-		a = a * c;
+	public static double exponent(double base, int power) {
+		if (power < 0) {
+			throw new IllegalArgumentException ("Please input a positive power.");
 		}
-		return a;
+		double c = base; 
+		for( int exponent = power;exponent != 1;exponent --) {
+			base = base * c;
+		}
+		return base;
 	}
 	//This method will return the factorial of the value passed.
 	public static int factorial(int a) {
-		int b = a;
-		for(int c = a; c != 0; c --) {
-		a = b * c;
+		if (a < 1) {
+			throw new IllegalArgumentException ("There is no factorial for values less than 1");
 		}
-	return a;
+		int b = 1;
+		for (int c = 1; c <= a; c ++) {
+			b = b * c;
+		}
+		return b;
+	}
+	//This method will determine if an integer is prime.
+	public static boolean isPrime(int a) {
+		boolean divisible;
+		boolean isPrime = true;
+		if (a > 1) {
+			for(int i = a - 1; i > 1; i --) {
+				divisible = Calculate.isDivisbleBy(a, i);
+				if (divisible == true) {
+					isPrime = false;
+				}
+				else {
+					isPrime = true;
+				}
+			}
+		}
+		else {
+			if (a == 1) {
+				isPrime = false;
+			}
+			else {
+				isPrime = false;
+			}
+		}
+		return isPrime;
+	}
+	//This method will find the greatest common factor of 2 integers inputed.
+	public static int gcf(int a, int b) {
+		int answer = 1;
+		for (int c = Calculate.min(a,b);c > 0; c--) {
+			if (Calculate.max(a, b) % c == 0 && Calculate.min(a,b) % c == 0) {
+				if (c >= answer) {
+					answer = c;
+				}
+			}
+		}
+		return answer;
+	}
+	//This method will approximate the square root of the value inputed rounded to the second decimal place.
+	public static double sqrt(double a) {
+		double root = a;
+		double estimate;
+		if (a == 0) {
+			return root = 0;
+		}
+		if (a < 0) {
+			throw new IllegalArgumentException ("The square root of an negative number is imaginary.");
+		}
+		if (a > 0) {
+			root = a / 2;
+			do {
+				estimate = root;
+				root = (estimate + (a/estimate))/2;
+			}
+			while ((estimate - root) != 0);
+		}
+		else {
+			root = a;
+		}
+		return Calculate.round2(root);
 	}
 }
